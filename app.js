@@ -27,9 +27,11 @@ const handleToggle = () => {
 
     if(toggler.classList.contains('darkMode')){
         handleCSSVar()
+        localStorage.setItem('mode','dark')
     }
     else{
         resetCSSVar()
+        localStorage.clear()
     }    
 }
 
@@ -54,3 +56,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     // Open default mail application
     window.location.href = mailtoLink
   })
+
+  if(localStorage.getItem('mode') === 'dark'){
+    handleToggle()
+  }
